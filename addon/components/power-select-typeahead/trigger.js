@@ -49,9 +49,18 @@ export default Component.extend({
       }
     }
 
-    if (oldSelect.selected !== newSelect.selected) {
+    if (oldSelect.selected !== newSelect.selected)  {
       this.set('text', this.getSelectedAsText());
+			return;
     }
+		else if (oldSelect.highlighted !== newSelect.highlighted) {
+			if (oldSelect.highlighted == undefined){
+				return;
+			}
+			this.set('text', this.getHighlightedAsText());
+			return;
+		}
+
   },
 
   actions: {
@@ -118,5 +127,26 @@ export default Component.extend({
       value = '';
     }
     return value;
-  }
+  },
+	 /**
+   * obtains seleted value based on complex object or primitive value from power-select publicAPI
+   *
+   * @private
+   * @method getHighlightedAsText
+   */
+		getHighlightedAsText() {
+			let labelPath = this.get('extra.labelPath');
+			let value;
+			if (labelPath) {
+				// complex object
+				value = this.get(`select.highlighted.${labelPath}`);
+			} else {
+				// primitive value
+				value = this.get('select.highlighted');
+			}
+			if (value === undefined) {
+				value = '';
+			}
+			return value;
+		}
 });
