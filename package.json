@@ -73,7 +73,7 @@
     "@ember-decorators/component": "^6.0.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
-    "ember-power-select": "https://github.com/egistix/ember-power-select.git"
+    "ember-power-select": "git+https://github.com/egistix/ember-power-select.git"
   },
   "ember": {
     "edition": "octane"
