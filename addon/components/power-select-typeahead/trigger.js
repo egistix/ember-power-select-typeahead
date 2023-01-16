@@ -53,7 +53,7 @@ export default Component.extend({
       this.set('text', this.getSelectedAsText());
 			return;
     }
-		else if (newSelected.selected !== undefined) {
+		else if (newSelect.selected !== undefined) {
 			this.set('text', this.getSelectedAsText());
 			return;
 		}
