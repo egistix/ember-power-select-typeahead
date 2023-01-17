@@ -19,11 +19,6 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
     let oldSelect = this.get('oldSelect');
-
-    if (!oldSelect) {
-      this.set('text', this.getSelectedAsText());
-    }
-
     let newSelect = this.set('oldSelect', this.get('select'));
     if (!oldSelect) {
       return;
